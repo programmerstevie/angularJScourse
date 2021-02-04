@@ -7,16 +7,11 @@ angular.module('LunchCheck', [])
 LunchCheckController.$inject = ['$scope'];
 
 function LunchCheckController($scope) {
+  $scope.lunchItems = ''; // so it is never undefined.
   $scope.messageStyle = {display : 'none'};
 
   $scope.checkIfTooMuch = function () {
     let count = 0;
-
-    if (!$scope.lunchItems) { // handle undefined
-      $scope.message = 'Please enter data first';
-      setMessageColor('red')
-      return;
-    }
     
     let lunchItemsArray = $scope.lunchItems.split(',').map(x => x.trim());
 
